@@ -130,8 +130,6 @@ function sendTx(src, des, value){
 
     var cmd2 = '0x' + moactx.serialize().toString('hex');
 console.log("Send cmd:", cmd2)
-// return;
-
 
 
 chain3.mc.sendRawTransaction(cmd2, function(err, hash) {

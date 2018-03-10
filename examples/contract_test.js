@@ -7,6 +7,59 @@
 var Chain3 = require('chain3');
 var chain3 = new Chain3();
 
+// for (var p in chain3 )
+//   console.log("method:", p);
+// return;
+
+//Example codes to deploy the contrat to MOAC through Chain3
+const fs = require("fs");
+const solc = require('solc')
+// let Web3 = require('web3');
+
+// let web3 = new Web3();
+// web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+//local input of the contract
+var input = {
+    'mytoken.sol': fs.readFileSync('examples/mytoken.sol', 'utf8')
+};
+
+let output = solc.compile({sources: input}, 1);
+// for (var contractName in output.contracts) {
+//     // code and ABI that are needed by web3
+//     console.log(contractName + ': ' + output.contracts[contractName].bytecode)
+//     console.log(contractName + '; ' + JSON.parse(output.contracts[contractName].interface))
+// }
+// // console.log(compiledContract.contracts);
+// // for (var p in output.contracts)
+// //   console.log("Contract method:", p);
+// return;
+let abi = output.contracts['mytoken.sol:TokenERC20'].interface;
+let bytecode = '0x'+output.contracts['mytoken.sol:TokenERC20'].bytecode;
+
+
+chain3.setProvider(new chain3.providers.HttpProvider('http://localhost:8545'));
+
+let gasEstimate = chain3.mc.estimateGas({data: bytecode});
+console.log("Gas Estimate on contract:", gasEstimate);
+
+return;
+
+
+
+var lms = LMS.new("sanchit", "s@a.com", {
+   from:chain3.mc.coinbase,
+   data:bytecode,
+   gas: gasEstimate
+ }, function(err, myContract){
+    if(!err) {
+       if(!myContract.address) {
+           console.log(myContract.transactionHash) 
+       } else {
+           console.log(myContract.address) 
+       }
+    }
+  });
+return;
 
 var inadd = "mFEZrK6AbkJacCN5aBRn6a2fGwgkVZW";
 // console.log("test:", chain3.isMoacAddress(inadd));

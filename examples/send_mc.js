@@ -10,9 +10,7 @@
  * 
 */
 //libraries to generate the Tx
-//MOAC libraries files 
 
-//var Transaction = require('../lib/accounts/transactions.js')
 //MOAC chain3 lib
 var Chain3 = require('chain3');
 var chain3 = new Chain3();
