@@ -1,11 +1,11 @@
 {
-  "name": "moac-lib",
+  "name": "moac-tx",
   "version": "0.1.0",
-  "description": "A javascript library for Mother Of All Chain(MOAC) project.",
+  "description": "A javascript library for Mother Of All Chain(MOAC) project. This is to replace ethereumjs-tx as a simple JS lib to use with MOAC transaction",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MOACChain/moac-lib.git"
+    "url": "https://github.com/mdranger/moac-tx.git"
   },
   "scripts": {
     "build-js": "browserify index.js --s moaclib -g [ babelify --presets [ es2015 react ] ] | uglifyjs -c > dist/moaclib.min.js",

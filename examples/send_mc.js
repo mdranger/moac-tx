@@ -16,7 +16,7 @@ var Chain3 = require('chain3');
 var chain3 = new Chain3();
 
 
-var moaclib = require('../../moac-lib/index.js');
+var moaclib = require('../../moac-tx/index.js');
 var utils = moaclib.txutils;
 var Transaction = moaclib.txs;
 // const twallet             = require('./test_wallet.json');//Test data used to test the wallet keystore functions.
