@@ -6,75 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author":"mdranger",
+  "license": "MIT",
   "dependencies": {
     "chain3": "0.1.7",
     "csv-streamify": "4.0.0",
-    "JSONStream": "1.3.3"
-  },
-  "author":"mdranger",
-  "license": "MIT"
-}
-{
-  "author": {
-    "name": "mjbecze",
-    "email": "mb@ethdev.com"
-  },
-  "bugs": {
-    "url": "https://github.com/ethereumjs/ethereumjs-tx/issues"
-  },
-  "contributors": [
-    {
-      "email": "-c-g-",
-      "url": "https://github.com/cgewecke"
-    },
-    {
-      "name": "Kirill Fomichev",
-      "email": "fanatid@ya.ru",
-      "url": "https://github.com/fanatid"
-    },
-    {
-      "name": "Rick Behl",
-      "url": "https://github.com/Nexus7"
-    },
-    {
-      "name": "Tim Coulter",
-      "email": "tim@timothyjcoulter.com",
-      "url": "https://github.com/tcoulter"
-    },
-    {
-      "name": "kumavis",
-      "email": "aaron@kumavis.me",
-      "url": "https://github.com/kumavis"
-    },
-    {
-      "name": "Jack Peterson",
-      "email": "jack@tinybike.net",
-      "url": "https://github.com/tinybike"
-    },
-    {
-      "name": "Nick Dodson",
-      "url": "https://github.com/SilentCicero"
-    },
-    {
-      "url": "https://github.com/ckeenan"
-    },
-    {
-      "name": "Alex Beregszaszi",
-      "email": "alex@rtfs.hu",
-      "url": "https://github.com/axic"
-    },
-    {
-      "url": "https://github.com/wanderer"
-    },
-    {
-      "url": "https://github.com/kvhnuke"
-    }
-  ],
-  "dependencies": {
+    "JSONStream": "1.3.3",
     "ethereum-common": "^0.0.18",
     "ethereumjs-util": "^5.0.0"
   },
-  "description": "An simple module for creating, manipulating and signing MOAC transactions",
   "devDependencies": {
     "async": "^2.0.0",
     "babel-cli": "^6.22.2",
