@@ -1,11 +1,13 @@
 /*
- * A MOAC lib to replace ethereumjs-tx 
+ * A MOAC lib to sign transaction for MOAC network
+ * developed from ethereumjs-tx 
 */
 'use strict'
+
+// necessary libraries
 const moacUtil = require('./lib/moacutils')
 const fees = require('./lib/params.json')
 const BN = moacUtil.BN
-// var BigNumber = require('bignumber.js');
 
 
 // secp256k1n/2

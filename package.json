@@ -1,24 +1,21 @@
 {
   "name": "moac-tx",
   "version": "0.1.0",
-  "description": "Send signed moac txs for moac node",
+  "description": "An simple module for creating, manipulating and signing MOAC transactions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:node && npm run test:browser"
   },
   "dependencies": {
     "chain3": "0.1.7",
     "csv-streamify": "4.0.0",
     "JSONStream": "1.3.3"
   },
-  "author":"mdranger",
-  "license": "MIT"
-}
-{
   "author": {
     "name": "mjbecze",
     "email": "mb@ethdev.com"
   },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ethereumjs/ethereumjs-tx/issues"
   },
@@ -70,11 +67,6 @@
       "url": "https://github.com/kvhnuke"
     }
   ],
-  "dependencies": {
-    "ethereum-common": "^0.0.18",
-    "ethereumjs-util": "^5.0.0"
-  },
-  "description": "An simple module for creating, manipulating and signing MOAC transactions",
   "devDependencies": {
     "async": "^2.0.0",
     "babel-cli": "^6.22.2",
@@ -94,7 +86,9 @@
     "karma-env-preprocessor": "^0.1.1",
     "karma-firefox-launcher": "^1.0.0",
     "karma-tap": "^2.0.1",
+    "keccak": "^1.4.0",
     "minimist": "^1.2.0",
+    "mocha": ">=2.3.3",
     "standard": "^7.1.2",
     "tape": "^4.0.3"
   },
@@ -103,16 +97,6 @@
     "moac",
     "transactions"
   ],
-  "scripts": {
-    "build:docs": "documentation --github  -f md ./index.js > ./docs/index.md && contributor",
-    "build:es5": "babel index.js --source-root ./ -d ./es5",
-    "coverage": "istanbul cover ./test/index.js",
-    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
-    "lint": "standard",
-    "test": "npm run test:node && npm run test:browser",
-    "test:browser": "karma start karma.conf.js",
-    "test:node": "tape ./test/index.js"
-  },
   "standard": {
     "ignore": [
       "dist/**",

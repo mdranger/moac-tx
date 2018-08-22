@@ -156,7 +156,7 @@
     "d": ""
   },
   "txGas": {
-    "v": 21000,
+    "v": 1000,
     "d": "Per transaction. NOTE: Not payable on data of calls between transactions."
   },
   "txCreation": {
