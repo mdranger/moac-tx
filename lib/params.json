@@ -160,7 +160,7 @@
     "d": "Per transaction. NOTE: Not payable on data of calls between transactions."
   },
   "txCreation": {
-    "v": 32000,
+    "v": 53000,
     "d": "the cost of creating a contract via tx"
   },
   "txDataZeroGas": {

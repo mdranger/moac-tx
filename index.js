@@ -6,15 +6,34 @@
 
 // necessary libraries
 const moacUtil = require('./lib/moacutils')
-const fees = require('./lib/params.json')
+// const fees = require('./lib/params.json')
 const BN = moacUtil.BN
 
 
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16)
-const SystemFlag  = 0x80
-const QueryFlag  = 0x40
-const ShardingFlag  = 0x20
+// const SystemFlag  = 0x80
+// const ShardingFlag  = 0x20
+
+// Fees defined in MOAC, should be found in params/protocol_params.go
+const fees = {
+  "txGas": {
+    "v": 1000,
+    "d": "Per transaction. NOTE: Not payable on data of calls between transactions."
+  },
+  "txCreation": {
+    "v": 53000,
+    "d": "the cost of creating a contract via tx"
+  },
+  "txDataZeroGas": {
+    "v": 4,
+    "d": "Per byte of data attached to a transaction that equals zero. NOTE: Not payable on data of calls between transactions."
+  },
+  "txDataNonZeroGas": {
+    "v": 68,
+    "d": "Per byte of data attached to a transaction that is not equal to zero. NOTE: Not payable on data of calls between transactions."
+  }
+};
 
 // var N_DIV_2 = new BigNumber('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16)
 
@@ -169,7 +188,6 @@ class Transaction {
       writable: false
     })
 
-
     //Set sharding flag to 0 as default
     Object.defineProperty(this, 'shardingFlag', {
       value: 0,
@@ -185,7 +203,7 @@ class Transaction {
     // set chainId as default
     // this chainID can be set with the right chain
     this._chainId = chainId || data.chainId || 0
-    this._pangu = true
+    this._nuwa = true // newest MOAC package
 // console.log("In constructor:", this.v, sigV);
 
   }
@@ -224,9 +242,10 @@ class Transaction {
    */
   toJSON () {
     var outJson = {
-            'nonce':this.nonce,
+      'nonce':this.nonce,
       'from': this.from,
       'to': this.to,
+      'value': this.value,
       'gasLimit':this.gasLimit,
       'gasPrice':this.gasPrice,
       'shardingFlag':this.shardingflag,
@@ -250,7 +269,7 @@ class Transaction {
    * The tx need to be the same
    * @param {Boolean} [includeSignature=true] whether or not to inculde the signature
    * @return {Buffer}
-   * MOAC, added SystemContract, QueryFlag and ShardingFlag items for signing
+   * MOAC, added SystemContract, ShardingFlag and Via items for signing
    * if the transaction structure changesm, this follows the definition in
    *
    * MoacCore\core\types\transaction.go
@@ -286,7 +305,7 @@ class Transaction {
     // when computing the hash of a transaction for purposes of signing or recovering,
     //
     // instead of hashing the elements (ie. nonce, systemcontract,
-    // gasprice, startgas, to, value, data, queryflag, shardingflag),
+    // gasprice, startgas, to, value, data, shardingflag, Via),
     // hash the elements with three more fields, with v replaced by CHAIN_ID, r = 0 and s = 0
 
     // chainid SHOULD BE non-zero for the valid network and EIP155
@@ -462,9 +481,6 @@ class Transaction {
     return new BN(this.gasLimit)
       .imul(new BN(this.gasPrice))
       .iadd(new BN(this.value))
-    // return new BigNumber(this.gasLimit)
-    //     .times(new BigNumber(this.gasPrice))
-    //     .plus(new BigNumber(this.value))
   }
 
   /**

@@ -94,7 +94,7 @@ var taccts = [{
  * value - default is in MC, 
  * in Sha, 1 mc = 1e+18 Sha
 */
-function sendTx(src, des, value){
+function sendTx(src, des, chainid, value){
   // console.log("Send from ", src, "to ", des);
     var txcount = chain3.mc.getTransactionCount(src["addr"]);
     console.log("Get tx account", txcount)
@@ -114,6 +114,7 @@ function sendTx(src, des, value){
       to: des.addr, 
       value: utils.intToHex(chain3.toSha(value, 'mc')), 
       data: '0x00',
+      chainId: chainid,
       queryFlag: 0,
       shardingFlag: 0
     }

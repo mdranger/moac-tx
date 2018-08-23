@@ -4,22 +4,18 @@
   "description": "An simple module for creating, manipulating and signing MOAC transactions",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:node && npm run test:browser"
+    "test": "npm run test"
   },
-  "dependencies": {
-    "chain3": "0.1.7",
-    "csv-streamify": "4.0.0",
-    "JSONStream": "1.3.3"
-  },
-  "author": {
-    "name": "mjbecze",
-    "email": "mb@ethdev.com"
-  },
+  "author": "zpli <zhengpeng.li@moac.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ethereumjs/ethereumjs-tx/issues"
+    "url": "https://github.com/MOACChain/moac-tx/issues"
   },
   "contributors": [
+    {
+      "name": "mjbecze",
+      "email": "mb@ethdev.com"
+    },
     {
       "email": "-c-g-",
       "url": "https://github.com/cgewecke"
@@ -67,40 +63,23 @@
       "url": "https://github.com/kvhnuke"
     }
   ],
-  "devDependencies": {
-    "async": "^2.0.0",
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.0.0",
-    "chain3": "^0.1.9",
-    "contributor": "^0.1.25",
-    "coveralls": "^2.11.4",
-    "documentation": "^3.0.4",
-    "ethereumjs-testing": "0.0.1",
-    "istanbul": "^0.4.1",
-    "karma": "^1.1.1",
-    "karma-browserify": "^5.1.0",
-    "karma-detect-browsers": "^2.0.2",
-    "karma-env-preprocessor": "^0.1.1",
-    "karma-firefox-launcher": "^1.0.0",
-    "karma-tap": "^2.0.1",
+  "dependencies": {
+    "assert": "*",
+    "bn.js": "^4.9.0",
+    "buffer": "^4.9.0",
+    "create-hash": "^1.0.0",
+    "ethjs-util": "^0.1.6",
     "keccak": "^1.4.0",
-    "minimist": "^1.2.0",
-    "mocha": ">=2.3.3",
-    "standard": "^7.1.2",
-    "tape": "^4.0.3"
+    "safe-buffer": "*",
+    "secp256k1": "*"
   },
-  "homepage": "https://github.com/mdranger/moac-tx.git",
+  "devDependencies": {
+    "chain3": "^0.1.9",
+    "chai": "*",
+    "mocha": ">=2.3.3"
+  },
   "keywords": [
     "moac",
     "transactions"
-  ],
-  "standard": {
-    "ignore": [
-      "dist/**",
-      "package.js"
-    ]
-  }
+  ]
 }
